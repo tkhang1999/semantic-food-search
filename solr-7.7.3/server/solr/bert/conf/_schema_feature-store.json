@@ -1,0 +1,19 @@
+{
+  "initArgs":{},
+  "initializedOn":"2021-06-16T19:34:08.481Z",
+  "managedList":[
+    {
+      "name":"categories_sim",
+      "class":"org.apache.solr.ltr.feature.SolrFeature",
+      "params":{"q":"{!dismax qf=categories}(${text})"},
+      "store":"my_efi_feature_store"},
+    {
+      "name":"bm25_sim",
+      "class":"org.apache.solr.ltr.feature.SolrFeature",
+      "params":{"q":"{!dismax qf=text}(${text})"},
+      "store":"my_efi_feature_store"},
+    {
+      "name":"original_score",
+      "class":"org.apache.solr.ltr.feature.OriginalScoreFeature",
+      "params":null,
+      "store":"my_efi_feature_store"}]}

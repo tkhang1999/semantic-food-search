@@ -1,5 +1,7 @@
 env/*
 *.pyc
+*.npy
+
 solr-7.7.3/server/logs/*
 solr-7.7.3/server/tmp/*.properties
 solr-8983.pid

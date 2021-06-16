@@ -1,0 +1,17 @@
+{
+  "store" : "my_efi_feature_store",
+  "name" : "my_efi_model",
+  "class" : "org.apache.solr.ltr.model.LinearModel",
+  "features" : [
+    { "name" : "categories_sim" },
+    { "name" : "bm25_sim" },
+    { "name" : "original_score" }
+  ],
+  "params" : {
+    "weights" : {
+      "categories_sim" : 0.0,
+      "bm25_sim" : 0.0,
+      "original_score" : 1.0
+    }
+  }
+}

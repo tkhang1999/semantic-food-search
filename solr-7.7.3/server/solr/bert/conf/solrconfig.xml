@@ -89,6 +89,22 @@
      <lib path="../a-jar-that-does-not-exist.jar" />
   -->
 
+<lib dir="${solr.install.dir:../../../..}/contrib/ltr/lib/" regex=".*\.jar" />
+<lib dir="${solr.install.dir:../../../..}/dist/" regex="solr-ltr-\d.*\.jar" />
+
+<queryParser name="ltr" class="org.apache.solr.ltr.search.LTRQParserPlugin"/>
+
+<cache name="QUERY_DOC_FV"
+       class="solr.search.LRUCache"
+       size="4096"
+       initialSize="2048"
+       autowarmCount="4096"
+       regenerator="solr.search.NoOpRegenerator" />
+
+<transformer name="features" class="org.apache.solr.ltr.response.transform.LTRFeatureLoggerTransformerFactory">
+  <str name="fvCacheName">QUERY_DOC_FV</str>
+</transformer>
+
   <!-- Data Directory
 
        Used to specify an alternate directory to hold all index data
