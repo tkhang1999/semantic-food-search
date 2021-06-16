@@ -27,7 +27,7 @@
                         <ol class="card-text">
                             {% for review in results %}
                             <li>
-                                {{ review }}
+                                {{ review.text }}, {{ review.score }}
                             </li>
                             {% endfor %}
                         </ol>
