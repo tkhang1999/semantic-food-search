@@ -1,1 +1,5 @@
+# Solr uses the lsof command, so we need to install the "heroku-buildpack-apt" to support lsof
+# i.e. heroku buildpacks:add --index 1 heroku-community/apt
+# then create an Aptfile with the single line "lsof"
+
 lsof

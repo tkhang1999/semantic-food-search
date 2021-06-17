@@ -3,24 +3,45 @@
 {% block body %}
 <div class="container mt-4">
     <div class="row">
-        <div class="col-6">
-            <div class="header">
-                <h1>Food Reviews Search</h1>
-            </div>
-            <form>
-                <div class="form-group">
-                    <!-- <label for="query">Query</label> -->
-                    <input required type="text" class="form-control" id="q" name="q" 
-                    placeholder="Enter query" value="{{ q }}">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+        <div class="header">
+            <h3>Food Reviews Search</h3>
         </div>
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <!-- <label for="query">Query</label> -->
+                    <input required type="text" class="validate" id="q" name="q" 
+                    value="{{ q }}" placeholder="Enter query">
+                    <label for="q">Query</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <select required type="input" id="top" name="top">
+                        <!-- <option value="" disabled selected>Choose your option</option> -->
+                        <option value="5" {% if top == "5" %} selected{% endif %}>5</option>
+                        <option value="15" {% if top == "15" %} selected{% endif %}>15</option>
+                        <option value="50" {% if top == "50" %} selected{% endif %}>50</option>
+                    </select>
+                    <label>Top results</label>
+                </div>
+                <div class="input-field col s6">
+                    <select required type="input" name="method" id="method">
+                        <!-- <option value="" disabled selected>Choose your option</option> -->
+                        <option value="ltr" {% if method == "ltr" %} selected{% endif %}>Learning To Rank</option>
+                        <option value="be" {% if method == "be" %} selected{% endif %}>BERT Embeddings</option>
+                        <option value="bm25" {% if method == "bm25" %} selected{% endif %}>BM25</option>
+                    </select>
+                    <label>Search method</label>
+                </div>
+            </div>
+            <button class="btn right waves-effect waves-light" type="submit" name="action">Submit</button>
+        </form>
     </div>
 
     <div class="container mt-4">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col s6">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Search results:</h5>

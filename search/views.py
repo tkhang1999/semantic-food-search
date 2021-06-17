@@ -3,6 +3,9 @@ from django.shortcuts import render
 import pysolr
 import os
 
+# Solr requires java to work, so we need to install java on heroku
+# i.e. heroku buildpacks:add heroku/jvm
+
 # start Solr server in background
 os.system("./solr-7.7.3/bin/solr start")
 
@@ -17,6 +20,9 @@ def home(request):
 
 def search(request):
     query = request.GET.get('q') or ""
+    top_results = request.GET.get('top') or "15"
+    search_method = request.GET.get('method') or "be"
+
     results = []
 
     if query:
@@ -33,6 +39,8 @@ def search(request):
 
     args = {
         'q': query,
+        'top': top_results,
+        'method': search_method,
         'results': results,
     }
 
