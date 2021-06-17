@@ -28,13 +28,13 @@ def search(request):
     if query:
         query_search = "text: (%s)" % (query)
         fl_search = "text,score"
-        reviews_count = 500
+        max_rows = 50
 
         search_results = SOLR.search(query_search, **{
             'fl': fl_search
-        }, rows=reviews_count)
+        }, rows=max_rows)
         results = [{'rank': index + 1, 'text': result['text'][0], 'score': result['score']} \
-            for index, result in enumerate(search_results)]
+            for index, result in enumerate(search_results)][:int(top_results)]
 
         # print(results)
 

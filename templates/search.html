@@ -39,23 +39,31 @@
         </form>
     </div>
 
-    <div class="container mt-4">
-        <div class="row">
-            <div class="col s6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Search results:</h5>
-                        <ol class="card-text">
-                            {% for review in results %}
-                            <li>
-                                {{ review.text }}, {{ review.score }}
-                            </li>
-                            {% endfor %}
-                        </ol>
-                    </div>
-                </div>
+    {% if results %}
+        <div class="container mt-4">
+            <div class="header">
+                <h5>Search Results:</h5>
             </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Review</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+        
+                <tbody>
+                    {% for result in results %}
+                        <tr>
+                            <td>{{ result.rank }}</td>
+                            <td>{{ result.text }}</td>
+                            <td>{{ result.score }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
-    </div>
+    {% endif %}
 </div>
 {% endblock %}
