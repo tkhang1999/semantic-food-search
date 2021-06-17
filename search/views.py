@@ -33,7 +33,8 @@ def search(request):
         search_results = SOLR.search(query_search, **{
             'fl': fl_search
         }, rows=reviews_count)
-        results = [{'text': result['text'][0], 'score': result['score']} for result in search_results]
+        results = [{'rank': index + 1, 'text': result['text'][0], 'score': result['score']} \
+            for index, result in enumerate(search_results)]
 
         # print(results)
 
