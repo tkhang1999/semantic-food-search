@@ -8,7 +8,7 @@ import os
 # i.e. heroku buildpacks:add heroku/jvm
 
 # start Solr server in background
-os.system("./solr-7.7.3/bin/solr start")
+os.system("./solr-6.6.0/bin/solr start")
 
 class SearchConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'

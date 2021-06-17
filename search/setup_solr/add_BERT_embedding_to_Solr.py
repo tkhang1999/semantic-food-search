@@ -26,8 +26,11 @@ for embedding in tqdm.tqdm(corpus_embeddings, desc="Converting embedding to vect
 vectors = [' '.join(vector) for vector in vectors]
 
 # Data to be indexed to Solr
-data = [{"id": rid, "sentiment": sen, "text": rev, "categories": cat, "vector": vec} for rid, sen, rev, cat, vec in \
-    zip(reviews['id'], reviews['content_type'], reviews['content'], reviews['categories'], vectors)]
+# data = [{"id": rid, "sentiment": sen, "text": rev, "categories": cat, "vector": vec} for rid, sen, rev, cat, vec in \
+#     zip(reviews['id'], reviews['content_type'], reviews['content'], reviews['categories'], vectors)]
+
+data = [{"id": rid, "text": rev, "vector": vec} for rid, rev, vec in \
+    zip(reviews['id'], reviews['content'], vectors)]
 
 # Index data and add to Solr with core 'bert'
 solr = pysolr.Solr(constants.SOLR_URL, always_commit=True)
