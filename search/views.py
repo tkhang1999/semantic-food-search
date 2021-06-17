@@ -1,17 +1,5 @@
 from django.shortcuts import render
-
-import pysolr
-import os
-
-# Solr requires java to work, so we need to install java on heroku
-# i.e. heroku buildpacks:add heroku/jvm
-
-# start Solr server in background
-os.system("./solr-7.7.3/bin/solr start")
-
-# connect to the solr server
-SOLR_BERT_URL = 'http://localhost:8983/solr/bert'
-SOLR = pysolr.Solr(SOLR_BERT_URL)
+from search.apps import SearchConfig
 
 # Create your views here.
 def home(request):
@@ -21,22 +9,12 @@ def home(request):
 def search(request):
     query = request.GET.get('q') or ""
     top_results = request.GET.get('top') or "15"
-    search_method = request.GET.get('method') or "be"
+    search_method = request.GET.get('method') or "bert"
 
     results = []
 
     if query:
-        query_search = "text: (%s)" % (query)
-        fl_search = "text,score"
-        max_rows = 50
-
-        search_results = SOLR.search(query_search, **{
-            'fl': fl_search
-        }, rows=max_rows)
-        results = [{'rank': index + 1, 'text': result['text'][0], 'score': result['score']} \
-            for index, result in enumerate(search_results)][:int(top_results)]
-
-        # print(results)
+        results = SearchConfig.search_utils.search_reviews(query, top_results, search_method)
 
     args = {
         'q': query,

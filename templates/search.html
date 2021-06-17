@@ -10,8 +10,8 @@
             <div class="row">
                 <div class="input-field col s12">
                     <!-- <label for="query">Query</label> -->
-                    <input required type="text" class="validate" id="q" name="q" 
-                    value="{{ q }}" placeholder="Enter query">
+                    <input required type="text" class="validate" id="q" name="q" value="{{ q }}" 
+                    placeholder="Enter query (e.g. delicious food, awful food, good chicken, etc.)">
                     <label for="q">Query</label>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                     <select required type="input" name="method" id="method">
                         <!-- <option value="" disabled selected>Choose your option</option> -->
                         <option value="ltr" {% if method == "ltr" %} selected{% endif %}>Learning To Rank</option>
-                        <option value="be" {% if method == "be" %} selected{% endif %}>BERT Embeddings</option>
+                        <option value="bert" {% if method == "bert" %} selected{% endif %}>BERT Embeddings</option>
                         <option value="bm25" {% if method == "bm25" %} selected{% endif %}>BM25</option>
                     </select>
                     <label>Search method</label>
