@@ -4,6 +4,10 @@ env/*
 
 solr-6.6.0/server/logs/*
 solr-6.6.0/server/tmp/*.properties
+solr-6.6.0/contrib/*
+solr-6.6.0/dist/*.java
+solr-6.6.0/dist/solrj-lib/*
+solr-6.6.0/dist/test-framework/*
 solr-6.6.0/docs/*
 solr-6.6.0/example/*
 solr-6.6.0/licenses/*
