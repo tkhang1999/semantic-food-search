@@ -1,5 +1,6 @@
 from django.apps import AppConfig
 from search.utils import SearchUtils
+from search.setup_solr import constants
 
 import os
 
@@ -12,4 +13,4 @@ os.system("./solr-7.7.3/bin/solr start")
 class SearchConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'search'
-    search_utils = SearchUtils('distilbert-base-nli-mean-tokens')
+    search_utils = SearchUtils(constants.PRE_TRAINED_MODEL)
