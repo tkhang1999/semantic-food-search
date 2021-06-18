@@ -2,33 +2,34 @@
 
 {% block body %}
 <div class="container">
-    <div class="jumbotron">
-        <h1 class="display-4">Semantic Search <i class="fas fa-globe-americas"></i></h1>
-        <p class="lead">This is a simple web demo of semantic search (search by meaning) 
-            on food reviews using Solr and BERT embeddings.</p>
-        <p>
-            In information retrieval, retrieved documents are ranked by relevance to the query.
-            Fundamentally, relevance is based on the textual similarity (e.g. BM25) between an 
-            information requirement (query) and an article (document).
-            However, a search system needs to measure the relevance of a document and a query beyond 
-            the simple textual similarity. Specifically, textual similarity at the word level does not 
-            take into consideration the actual meaning of words or the entire phrase in context. 
-            As such, we shall model the semantic similarity between two pieces of text to achieve a better 
-            search result. The traditional approach to address semantic search is to transform  each 
-            sentence into a vector space such that semantically similar sentences will be close to 
-            each other. We use <a href="https://github.com/UKPLab/sentence-transformers">Sentence-BERT 
-            (SBERT)</a> to derive semantically meaningful BERT embeddings that can be compared 
-            using cosine similarity.
-        </p>
-        <hr class="my-4">
-        <p>The web is built on Django, SBERT, Solr, and Heroku. 
-            As the application is hosted on a free dyno,
-            please expect <b>repsonse delays</b> from the server.
-            Particularly, the delays are caused by the heavyweight PyTorch dependency.
-            However, the application can be run locally for better performance and testing.
-            The source code of the application is available on GitHub.</p>
-        <a class="btn waves-effect waves-light" href="#" role="button">Learn more</a>
-    </div>
+    <h1>Semantic Search</h1>
+    <p class="lead">This is a simple web demo of semantic search (search by meaning) 
+        on food reviews using Solr and BERT embeddings.</p>
+    <p>
+        In information retrieval, retrieved documents are ranked by relevance to the query.
+        Fundamentally, relevance is based on the textual similarity (e.g. BM25) between an 
+        information requirement (query) and an article (document).
+        However, a search system needs to measure the relevance of a document and a query beyond 
+        the simple textual similarity. Specifically, textual similarity at the word level does not 
+        take into consideration the actual meaning of words or the entire phrase in context. 
+        As such, we shall model the semantic similarity between two pieces of text to achieve a better 
+        search result. The traditional approach to address semantic search is to transform  each 
+        sentence into a vector space such that semantically similar sentences will be close to 
+        each other. We use <a href="https://github.com/UKPLab/sentence-transformers">Sentence-BERT 
+        (SBERT)</a> to derive semantically meaningful BERT embeddings that can be compared 
+        using cosine similarity.
+    </p>
+    <hr class="my-4">
+    <p>The web is built on Django, SBERT, Solr, and Heroku. 
+        As the application is hosted on a free dyno,
+        please expect <b>repsonse delays</b> from the server.
+        Particularly, the delays are caused by the heavyweight PyTorch dependency.
+        However, the application can be run locally for better performance and testing.
+        The source code of the application is available on GitHub.</p>
+    <a class="btn waves-effect waves-light red lighten-2" href="/search" 
+        role="button" onclick="showLoader()">Search now</a>
+    <a class="btn waves-effect waves-light" href="https://github.com/tkhang1999/Semantic-Search" 
+        role="button" target="_blank">Learn more</a>
 </div>
 {% endblock %}
 

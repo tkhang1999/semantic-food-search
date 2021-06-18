@@ -2,13 +2,13 @@ from django.apps import AppConfig
 from search.utils import SearchUtils
 from search.setup_solr import constants
 
-import os
+import subprocess
 
 # Solr requires java to work, so we need to install java on heroku
 # i.e. heroku buildpacks:add heroku/jvm
 
 # start Solr server in background
-os.system("./solr-6.6.0/bin/solr start")
+subprocess.Popen(['./solr-6.6.0/bin/solr', 'start'])
 
 class SearchConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
