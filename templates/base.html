@@ -6,8 +6,11 @@
 <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
     <script src="{% static 'js/materialize.min.js' %}"></script>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Semantic Search</title>
 </head>
 
@@ -39,14 +42,20 @@ z-index: 99;">
 </div>
 
 <body>
+    <ul id="dropdown1" class="dropdown-content">       
+        <li><a href="/search" onclick="showLoader()">Search</a></li>
+        <li><a href="/contact" onclick="showLoader()">Contact</a></li>
+    </ul>
+
     <nav>
         <div class="container">
             <div class="nav-wrapper">
                 <a href="/" class="left brand-logo" onclick="showLoader()"><img src="{% static 'img/food.png' %}" height="50"> Home</a>
-                <ul id="nav-mobile" class="right">        
+                <ul id="nav-mobile" class="right hide-on-small-only">        
                     <li><a href="/search" onclick="showLoader()">Search</a></li>
                     <li><a href="/contact" onclick="showLoader()">Contact</a></li>
                 </ul>
+                <a class="right dropdown-trigger hide-on-med-and-up" href="#!" data-target="dropdown1"><i class="material-icons">menu</i></a>
             </div>
         </div>
     </nav>
@@ -60,6 +69,11 @@ z-index: 99;">
     document.addEventListener('DOMContentLoaded', function() {
         var elems = document.querySelectorAll('select');
         var instances = M.FormSelect.init(elems);
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.dropdown-trigger');
+        var instances = M.Dropdown.init(elems);
     });
 
     function showLoader() {
