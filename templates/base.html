@@ -11,14 +11,41 @@
     <title>Semantic Search</title>
 </head>
 
+<div class="overlay" id="loader" style="display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+opacity: 0.6;
+background-color: black;
+z-index: 99;">
+    <div class="preloader-wrapper big active" style="margin:auto;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    position:fixed;">
+        <div class="spinner-layer spinner-red-only">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <body>
     <nav>
         <div class="container">
             <div class="nav-wrapper">
-                <a href="/" class="left brand-logo"><img src="{% static 'img/food.png' %}" height="50"> Home</a>
+                <a href="/" class="left brand-logo" onclick="showLoader()"><img src="{% static 'img/food.png' %}" height="50"> Home</a>
                 <ul id="nav-mobile" class="right">        
-                    <li><a href="/search">Search</a></li>
-                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/search" onclick="showLoader()">Search</a></li>
+                    <li><a href="/contact" onclick="showLoader()">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -34,6 +61,10 @@
         var elems = document.querySelectorAll('select');
         var instances = M.FormSelect.init(elems);
     });
+
+    function showLoader() {
+        document.getElementById("loader").style.display = "block";
+    }
 </script>
 
 </html>
