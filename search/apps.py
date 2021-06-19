@@ -8,7 +8,7 @@ import subprocess
 class SearchConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'search'
-    search_utils = SearchUtils(constants.PRE_TRAINED_MODEL.split("/")[-1])
+    search_utils = SearchUtils(constants.PRE_TRAINED_MODEL)
 
     def ready(self):
         # Solr requires java to work, so we need to install java on heroku
