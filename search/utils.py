@@ -1,11 +1,12 @@
 import pysolr
 
 from sentence_transformers import SentenceTransformer
+from search.setup_solr import constants
 
 
 class SearchUtils:
-    MAX_ROWS = 50
-    SOLR = pysolr.Solr('http://localhost:8983/solr/bert')
+    MAX_ROWS = constants.RERANK
+    SOLR = pysolr.Solr(constants.SOLR_URL)
     SIMILARITY_SCORE_CUTOFF = 0.5
 
 
