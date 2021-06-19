@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from search.apps import SearchConfig
+from django.apps import apps
 
 # Create your views here.
 def home(request):
@@ -14,7 +14,7 @@ def search(request):
     results = []
 
     if query:
-        results = SearchConfig.search_utils.search_reviews(query, top_results, search_method)
+        results = apps.get_app_config('search').search_utils.search_reviews(query, top_results, search_method)
 
     args = {
         'q': query,
