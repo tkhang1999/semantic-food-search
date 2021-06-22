@@ -7,7 +7,7 @@ from search.setup_solr import constants
 class SearchUtils:
     MAX_ROWS = constants.RERANK
     SOLR = pysolr.Solr(constants.SOLR_URL)
-    SIMILARITY_SCORE_CUTOFF = 0.5
+    SIMILARITY_SCORE_CUTOFF = constants.SIMILARITY_SCORE
 
 
     def __init__(self, pretrained_model_name):

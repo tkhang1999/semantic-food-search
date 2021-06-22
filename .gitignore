@@ -3,13 +3,13 @@ env/*
 *.pyc
 *.npy
 
-solr-6.6.0/server/logs/*
-solr-6.6.0/server/tmp/*.properties
-solr-6.6.0/contrib/*
-solr-6.6.0/dist/*.java
-solr-6.6.0/dist/solrj-lib/*
-solr-6.6.0/dist/test-framework/*
-solr-6.6.0/docs/*
-solr-6.6.0/example/*
-solr-6.6.0/licenses/*
+solr-*/server/logs/*
+solr-*/server/tmp/*.properties
+solr-*/contrib/*
+solr-*/dist/*.jar
+solr-*/dist/solrj-lib/*
+solr-*/dist/test-framework/*
+solr-*/docs/*
+solr-*/example/*
+solr-*/licenses/*
 solr-8983.pid
