@@ -15,4 +15,4 @@ class SearchConfig(AppConfig):
         # i.e. heroku buildpacks:add heroku/jvm
 
         # start Solr server in background
-        subprocess.Popen(['./solr-6.6.0/bin/solr', 'start'])
+        subprocess.Popen(['./solr-6.6.6/bin/solr', 'start'])
