@@ -11,7 +11,7 @@ def search(request):
     top_results = request.GET.get('top') or "15"
     search_method = request.GET.get('method') or "bert"
 
-    results = []
+    results = None
 
     if query:
         results = apps.get_app_config('search').search_utils.search_reviews(query, top_results, search_method)

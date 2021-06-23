@@ -66,6 +66,14 @@
                 </table>
             </div>
         </div>
+    {% elif results is not none %}
+        <div class="container">
+            <div class="row">
+                <div class="header">
+                    <h5>No matching result!</h5>
+                </div>
+            </div>
+        </div>
     {% endif %}
 </div>
 {% endblock %}
