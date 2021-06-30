@@ -39,7 +39,15 @@
         </form>
     </div>
 
-    {% if results %}
+    {% if error %}
+        <div class="container">
+            <div class="row">
+                <div class="header">
+                    <h5>{{ error }}</h5>
+                </div>
+            </div>
+        </div>
+    {% elif results %}
         <div class="container">
             <div class="row">
                 <div class="header">
