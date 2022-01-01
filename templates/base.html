@@ -44,7 +44,7 @@ z-index: 99;">
 <body>
     <ul id="dropdown1" class="dropdown-content">       
         <li><a href="/search" onclick="showLoader()">Search</a></li>
-        <li><a href="/contact" onclick="showLoader()">Contact</a></li>
+        <li><a href="/about" onclick="showLoader()">About</a></li>
     </ul>
 
     <nav>
@@ -53,7 +53,7 @@ z-index: 99;">
                 <a href="/" class="left brand-logo" onclick="showLoader()"><img src="{% static 'img/food.png' %}" height="50"> Home</a>
                 <ul id="nav-mobile" class="right hide-on-small-only">        
                     <li><a href="/search" onclick="showLoader()">Search</a></li>
-                    <li><a href="/contact" onclick="showLoader()">Contact</a></li>
+                    <li><a href="/about" onclick="showLoader()">About</a></li>
                 </ul>
                 <a class="right dropdown-trigger hide-on-med-and-up" href="#!" data-target="dropdown1"><i class="material-icons">menu</i></a>
             </div>
@@ -67,17 +67,32 @@ z-index: 99;">
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('select');
-        var instances = M.FormSelect.init(elems);
+        let elems = document.querySelectorAll('select');
+        let instances = M.FormSelect.init(elems);
     });
 
     document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.dropdown-trigger');
-        var instances = M.Dropdown.init(elems);
+        let elems = document.querySelectorAll('.dropdown-trigger');
+        let instances = M.Dropdown.init(elems);
     });
 
     function showLoader() {
         document.getElementById("loader").style.display = "block";
+    }
+
+    function submitForm(e) {
+        e.preventDefault();
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const form = document.querySelector('form');
+        const formData = new URLSearchParams(new FormData(form).entries());
+
+        if (urlParams.get("q") !== formData.get("q")
+            || urlParams.get("top") !== formData.get("top")
+            || urlParams.get("method") !== formData.get("method")) {
+            showLoader();
+            form.submit();
+        }
     }
 </script>
 

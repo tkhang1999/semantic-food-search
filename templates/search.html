@@ -6,7 +6,7 @@
         <div class="header">
             <h3>Food Reviews Search</h3>
         </div>
-        <form class="col s12" onsubmit="showLoader()">
+        <form class="col s12" onsubmit="submitForm(event)">
             <div class="row">
                 <div class="input-field col s12">
                     <!-- <label for="query">Query</label> -->
@@ -19,9 +19,9 @@
                 <div class="input-field col s12 m6">
                     <select required type="input" id="top" name="top">
                         <!-- <option value="" disabled selected>Choose your option</option> -->
-                        <option value="5" {% if top == "5" %} selected{% endif %}>5</option>
-                        <option value="15" {% if top == "15" %} selected{% endif %}>15</option>
-                        <option value="50" {% if top == "50" %} selected{% endif %}>50</option>
+                        <option value="5" {% if top == "5" %}selected{% endif %}>5</option>
+                        <option value="15" {% if top == "15" %}selected{% endif %}>15</option>
+                        <option value="50" {% if top == "50" %}selected{% endif %}>50</option>
                     </select>
                     <label>Top results</label>
                 </div>
@@ -29,8 +29,8 @@
                     <select required type="input" name="method" id="method">
                         <!-- <option value="" disabled selected>Choose your option</option> -->
                         <!-- <option value="ltr" {% if method == "ltr" %} selected{% endif %}>Learning To Rank</option> -->
-                        <option value="bert" {% if method == "bert" %} selected{% endif %}>BERT Embeddings</option>
-                        <option value="bm25" {% if method == "bm25" %} selected{% endif %}>BM25</option>
+                        <option value="bert" {% if method == "bert" %}selected{% endif %}>BERT Embeddings</option>
+                        <option value="bm25" {% if method == "bm25" %}selected{% endif %}>BM25</option>
                     </select>
                     <label>Search method</label>
                 </div>
