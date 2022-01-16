@@ -19,7 +19,8 @@ def search(request):
         try:
             results = apps.get_app_config('search').search_utils.search_reviews(query, top_results, search_method)
         except SolrError:
-            solr_error = "Solr server may be loading at the moment, please wait for a while and try again!"
+            solr_error = "Solr server may be loading at the moment, \
+                please wait for a while and try loading the page again!"
 
 
     args = {

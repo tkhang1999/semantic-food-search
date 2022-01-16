@@ -68,8 +68,7 @@ class SearchUtils:
             'fl': fl_search
         }, rows=self.MAX_ROWS)
         searched_reviews = [{'rank': rank + 1, 'text': result['text'][0], 'score': result['score']} \
-            for rank, result in enumerate(search_results) \
-            if float(result['score']) > self.SIMILARITY_SCORE_CUTOFF]
+            for rank, result in enumerate(search_results)]
 
         return searched_reviews
 

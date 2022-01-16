@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
     <script src="{% static 'js/materialize.min.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Semantic Search</title>
@@ -64,36 +65,5 @@ z-index: 99;">
         <h1>Base</h1>
     {% endblock %}
 </body>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        let elems = document.querySelectorAll('select');
-        let instances = M.FormSelect.init(elems);
-    });
-
-    document.addEventListener('DOMContentLoaded', function() {
-        let elems = document.querySelectorAll('.dropdown-trigger');
-        let instances = M.Dropdown.init(elems);
-    });
-
-    function showLoader() {
-        document.getElementById("loader").style.display = "block";
-    }
-
-    function submitForm(e) {
-        e.preventDefault();
-
-        const urlParams = new URLSearchParams(window.location.search);
-        const form = document.querySelector('form');
-        const formData = new URLSearchParams(new FormData(form).entries());
-
-        if (urlParams.get("q") !== formData.get("q")
-            || urlParams.get("top") !== formData.get("top")
-            || urlParams.get("method") !== formData.get("method")) {
-            showLoader();
-            form.submit();
-        }
-    }
-</script>
 
 </html>
