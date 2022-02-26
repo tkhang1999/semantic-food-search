@@ -22,7 +22,6 @@ def search(request):
             solr_error = "Solr server may be loading at the moment, \
                 please wait for a while and try loading the page again!"
 
-
     args = {
         'q': query,
         'top': top_results,
