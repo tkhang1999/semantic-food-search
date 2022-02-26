@@ -39,14 +39,15 @@ $ python manage.py runserver
 
 ## Miscellaneous
 ### 1. Data indexing in Solr
-* We use the food review data in this application for semantic search, you can find the data in `search/setup_solr/foodhunter_reviews.csv`
-* You can re-index the data by running the following command
+* We use a small part of Amazon Fine Food Reviews dataset in this application for semantic search, the full dataset can be found [here](https://www.kaggle.com/snap/amazon-fine-food-reviews)
+* Our data are available at `search/setup_solr/amazon_food_reviews.csv`
+* To re-index the data in Solr, make sure Solr is started and run the following command
 ```
 $ python search/setup_solr/add_BERT_embedding_to_Solr.py
 ```
 
 ### 2. Pre-trained model used in SBERT
-* SBERT provides different models for our usage. More details can be found from [here](https://www.sbert.net/docs/pretrained_models.html).
+* SBERT provides different models for our usage. More details can be found [here](https://www.sbert.net/docs/pretrained_models.html).
 * Because the application is deployed on a free dyno from Heroku, we choose and download a lightweight model locally to improve the web performance. 
 The [**paraphrase-MiniLM-L3-v2**](search/setup_solr/paraphrase-MiniLM-L3-v2/) model offers a great trade-off between performance and speed. 
 
@@ -62,7 +63,7 @@ $ heroku buildpacks:add --index 2 heroku/jvm
 * Other settings include `gunicorn`, `whitenoise`, and `Procfile`
 
 ### 4. Solr setup
-If you need to setup `solr` from scratch, follow the below steps:
+To setup `solr` from scratch, follow the below steps:
 
 * Download [`solr-6.6.6`](https://archive.apache.org/dist/lucene/solr/6.6.6/), unzip 
 and put the folder in the project directory
