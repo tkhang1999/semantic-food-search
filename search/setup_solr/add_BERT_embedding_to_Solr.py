@@ -9,7 +9,7 @@ import constants
 reviews = pd.read_csv(constants.REVIEWS_DATA_CSV)
 
 # Encode reviews to BERT embeddings
-corpus = reviews['content']
+corpus = reviews['text']
 embedder = SentenceTransformer(constants.PRE_TRAINED_MODEL)
 
 print("Encoding reviews to BERT embeddings:")
@@ -26,11 +26,8 @@ for embedding in tqdm.tqdm(corpus_embeddings, desc="Converting embedding to vect
 vectors = [' '.join(vector) for vector in vectors]
 
 # Data to be indexed to Solr
-# data = [{"id": rid, "sentiment": sen, "text": rev, "categories": cat, "vector": vec} for rid, sen, rev, cat, vec in \
-#     zip(reviews['id'], reviews['content_type'], reviews['content'], reviews['categories'], vectors)]
-
-data = [{"id": rid, "text": rev, "vector": vec} for rid, rev, vec in \
-    zip(reviews['id'], reviews['content'], vectors)]
+data = [{"id": rid, "text": rev, "rating": rat, "product_id": pid, "vector": vec} for rid, rev, rat, pid, vec in \
+    zip(reviews['id'], reviews['text'], reviews['score'], reviews['product_id'], vectors)]
 
 # Index data and add to Solr with core 'bert'
 solr = pysolr.Solr(constants.SOLR_URL, always_commit=True)

@@ -62,12 +62,13 @@ class SearchUtils:
     def search_reviews_bert(self, query):
         query_vector = self.get_vector_from_sentence(query)
         query_search = "{!vp f=vector vector=\"%s\"}" % (query_vector)
-        fl_search = "text,score"
+        fl_search = "product_id,text,rating,score"
 
         search_results = self.SOLR.search(query_search, **{
             'fl': fl_search
         }, rows=self.MAX_ROWS)
-        searched_reviews = [{'rank': rank + 1, 'text': result['text'][0], 'score': result['score']} \
+        searched_reviews = [{'rank': rank + 1, 'product': result['product_id'][0], \
+            'text': result['text'][0], 'rating': result['rating'][0], 'score': result['score']} \
             for rank, result in enumerate(search_results)]
 
         return searched_reviews
@@ -75,12 +76,13 @@ class SearchUtils:
 
     def search_reviews_bm25(self, query):
         query_search = "text: (%s)" % (query)
-        fl_search = "text,score"
+        fl_search = "product_id,text,rating,score"
 
         search_results = self.SOLR.search(query_search, **{
             'fl': fl_search
         }, rows=self.MAX_ROWS)
-        searched_reviews = [{'rank': rank + 1, 'text': result['text'][0], 'score': result['score']} \
+        searched_reviews = [{'rank': rank + 1, 'product': result['product_id'][0], \
+            'text': result['text'][0], 'rating': result['rating'][0], 'score': result['score']} \
             for rank, result in enumerate(search_results)]
 
         return searched_reviews
