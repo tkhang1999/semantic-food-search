@@ -16,11 +16,15 @@ which may not be retrieved if only textual similarity is used.
 
 **Web Demo: https://semantic-embeddings.herokuapp.com/**
 
+<p align="center">
+  <img src="./demo.png" alt="Web Demo" />
+</p>
+
 ## Technology Stack
 Several technologies used in this project include:
 * [Python 3.7/3.8](https://www.python.org/)
-* [Django](https://docs.djangoproject.com/en/3.2/)
-* [Solr](https://solr.apache.org/guide/6_6/) 
+* [Django](https://www.djangoproject.com/)
+* [Solr 6.6](https://solr.apache.org/guide/6_6/) 
 * [SBERT](https://github.com/UKPLab/sentence-transformers)
 * [Heroku](https://www.heroku.com/)
 
