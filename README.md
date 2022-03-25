@@ -1,5 +1,5 @@
 # Solr-SBERT-semantic-search
-This is a simple web demo of semantic search (search by meaning) on food reviews using Solr and BERT embeddings.
+This is a simple web demo of semantic search (search by meaning) on food products using Solr and BERT embeddings.
 
 ## Introduction
 In information retrieval, retrieved documents are ranked by relevance to the query.
@@ -10,8 +10,8 @@ As such, we shall model the semantic similarity between two pieces of text to ac
 The traditional approach to address semantic search is to transform each sentence into a vector space such that
 semantically similar sentences will be close to each other. We use Sentence-BERT (SBERT)
 to derive semantically meaningful BERT embeddings that can be compared using cosine similarity.
-As a result, we are able to retrieve reviews that have a similar meaning to our query. 
-For example, for the "*astonishing food*" query, the system will return similar reviews like "*amazing food*" and "*delicious food*," 
+As a result, we are able to retrieve food products with reviews that have a similar meaning to our query. 
+For example, for the "*astonishing food*" query, the system will return products with similar reviews like "*amazing food*" and "*delicious food*," 
 which may not be retrieved if only textual similarity is used.
 
 **Web Demo: https://semantic-embeddings.herokuapp.com/**

@@ -30,7 +30,37 @@ z-index: 99;">
     top:0;
     bottom:0;
     position:fixed;">
-        <div class="spinner-layer spinner-red-only">
+        <div class="spinner-layer spinner-red">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+
+        <div class="spinner-layer spinner-blue">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+  
+        <div class="spinner-layer spinner-yellow">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+  
+        <div class="spinner-layer spinner-green">
             <div class="circle-clipper left">
                 <div class="circle"></div>
             </div><div class="gap-patch">
@@ -43,7 +73,7 @@ z-index: 99;">
 </div>
 
 <body>
-    <ul id="dropdown1" class="dropdown-content">       
+    <ul id="nav-dropdown" class="dropdown-content">       
         <li><a href="/search" onclick="showLoader()">Search</a></li>
         <li><a href="/about" onclick="showLoader()">About</a></li>
     </ul>
@@ -56,7 +86,7 @@ z-index: 99;">
                     <li><a href="/search" onclick="showLoader()">Search</a></li>
                     <li><a href="/about" onclick="showLoader()">About</a></li>
                 </ul>
-                <a class="right dropdown-trigger hide-on-med-and-up" href="#!" data-target="dropdown1"><i class="material-icons">menu</i></a>
+                <a class="right dropdown-trigger hide-on-med-and-up" href="#!" data-target="nav-dropdown"><i class="material-icons">menu</i></a>
             </div>
         </div>
     </nav>
