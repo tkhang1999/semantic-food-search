@@ -41,6 +41,12 @@ $ pip install -r requirements.txt
 $ python manage.py runserver
 ```
 
+**Note**: To run on Windows machine, the following steps may be required to run Solr server in background
+
+* Replace `subprocess.Popen(['./solr-6.6.6/bin/solr', 'start'])` with `subprocess.Popen(['.\\solr-6.6.6\\bin\\solr', 'start'], shell=True)`
+
+* Replace `subprocess.Popen(['./solr-6.6.6/bin/solr', 'stop', '-all'])` with `subprocess.Popen(['.\\solr-6.6.6\\bin\\solr', 'stop', '-all'], shell=True)`
+
 ## Miscellaneous
 ### 1. Data indexing in Solr
 * We use a small part of Amazon Fine Food Reviews dataset in this application for semantic search, the full dataset can be found [here](https://www.kaggle.com/snap/amazon-fine-food-reviews)

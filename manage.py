@@ -2,6 +2,7 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+import subprocess
 
 
 def main():
@@ -19,4 +20,8 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    finally:
+        # stop Solr server in background
+        subprocess.Popen(['./solr-6.6.6/bin/solr', 'stop', '-all'])
