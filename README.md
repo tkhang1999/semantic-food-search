@@ -26,9 +26,13 @@ Several technologies used in this project include:
 * [Django](https://www.djangoproject.com/)
 * [Solr 6.6](https://solr.apache.org/guide/6_6/) 
 * [SBERT](https://github.com/UKPLab/sentence-transformers)
+* [Docker](https://www.docker.com/)
 * [Heroku](https://www.heroku.com/)
 
 ## How to run?
+
+### Run on local environment
+
 1. Install `Java 8`
 
 2. Install dependencies
@@ -47,6 +51,15 @@ $ python manage.py runserver
 
 * Replace `subprocess.Popen(['./solr-6.6.6/bin/solr', 'stop', '-all'])` with `subprocess.Popen(['.\\solr-6.6.6\\bin\\solr', 'stop', '-all'], shell=True)`
 
+### Run with Docker
+
+1. Install `docker` and `docker-compose`
+
+2. Start application
+```
+$ docker-compose up
+```
+
 ## Miscellaneous
 ### 1. Data indexing in Solr
 * We use a small part of Amazon Fine Food Reviews dataset in this application for semantic search, the full dataset can be found [here](https://www.kaggle.com/snap/amazon-fine-food-reviews)
@@ -61,16 +74,9 @@ $ python search/setup_solr/add_BERT_embedding_to_Solr.py
 * Because the application is deployed on a free dyno from Heroku, we choose and download a lightweight model locally to improve the web performance. 
 The [**paraphrase-MiniLM-L3-v2**](search/setup_solr/paraphrase-MiniLM-L3-v2/) model offers a great trade-off between performance and speed. 
 
-### 3. Heroku deployment
-* Add the `heroku-buildpack-apt` to install the `lsof` dependency for Solr. Then, we need create a file named `Aptfile` with a single line `lsof`.
-```
-$ heroku buildpacks:add --index 1 heroku-community/apt
-```
-* Add the `JVM` buildpack as Solr requires at least `Java 8` to run
-```
-$ heroku buildpacks:add --index 2 heroku/jvm
-```
-* Other settings include `gunicorn`, `whitenoise`, and `Procfile`
+### 3. Deployment
+* Containerize application with Docker
+* Deploy Docker-based app to Heroku: [https://devcenter.heroku.com/articles/container-registry-and-runtime](https://devcenter.heroku.com/articles/container-registry-and-runtime)
 
 ### 4. Solr setup
 To setup `solr` from scratch, follow the below steps:
