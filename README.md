@@ -31,6 +31,15 @@ Several technologies used in this project include:
 
 ## How to run?
 
+### Run with Docker
+
+1. Install [Docker Engine](https://docs.docker.com/engine/install/ubuntu/)
+
+2. Start application
+```
+$ sudo docker compose up
+```
+
 ### Run on local environment
 
 1. Install `Java 8`
@@ -50,15 +59,6 @@ $ python manage.py runserver
 * Replace `subprocess.Popen(['./solr-6.6.6/bin/solr', 'start'])` with `subprocess.Popen(['.\\solr-6.6.6\\bin\\solr', 'start'], shell=True)`
 
 * Replace `subprocess.Popen(['./solr-6.6.6/bin/solr', 'stop', '-all'])` with `subprocess.Popen(['.\\solr-6.6.6\\bin\\solr', 'stop', '-all'], shell=True)`
-
-### Run with Docker
-
-1. Install `docker` and `docker-compose`
-
-2. Start application
-```
-$ docker-compose up
-```
 
 ## Miscellaneous
 ### 1. Data indexing in Solr
