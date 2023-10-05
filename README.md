@@ -1,6 +1,9 @@
 # Solr-SBERT-semantic-search
 This is a simple web demo of semantic search (search by meaning) on food products using Solr and BERT embeddings.
 
+**Disclaimer:** The demo website is deployed on a free dyno from Heroku so it may take a while to load. 
+Additionally, the search result is limited to a small part of [Amazon Fine Food Reviews](https://www.kaggle.com/snap/amazon-fine-food-reviews) dataset
+
 ## Introduction
 In information retrieval, retrieved documents are ranked by relevance to the query.
 Fundamentally, relevance is based on the textual similarity (e.g. BM25) between an information requirement (query) and an article (document).
