@@ -37,6 +37,6 @@ torchvision==0.7.0+cpu
 tqdm==4.61.1
 transformers==4.7.0
 typing-extensions==3.10.0.0
-urllib3==1.26.5
+urllib3==1.26.18
 whitenoise==5.2.0
 zipp==3.4.1
