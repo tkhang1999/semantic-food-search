@@ -1,3 +1,5 @@
+import os
+
 from django.apps import AppConfig
 from search.utils import SearchUtils, start_solr_server
 from search.setup_solr import constants
@@ -9,4 +11,5 @@ class SearchConfig(AppConfig):
     search_utils = SearchUtils(constants.PRE_TRAINED_MODEL)
 
     def ready(self):
-        start_solr_server()
+        if os.environ.get('RUN_MAIN'):
+            start_solr_server()
