@@ -25,7 +25,7 @@ which may not be retrieved if only textual similarity is used.
 
 ## Technology Stack
 Several technologies used in this project include:
-* [Python 3.7/3.8](https://www.python.org/)
+* [Python 3.10](https://www.python.org/)
 * [Django](https://www.djangoproject.com/)
 * [Solr 6.6](https://solr.apache.org/guide/6_6/) 
 * [SBERT](https://github.com/UKPLab/sentence-transformers)
@@ -59,7 +59,7 @@ $ python manage.py runserver
 
 **Note**: To run on Windows machine, the following steps may be required to run Solr server in background
 
-* Replace `subprocess.Popen(['./solr-6.6.6/bin/solr', 'start'])` with `subprocess.Popen(['.\\solr-6.6.6\\bin\\solr', 'start'], shell=True)`
+* Replace `subprocess.Popen(['./solr-6.6.6/bin/solr', 'start', '-force'])` with `subprocess.Popen(['.\\solr-6.6.6\\bin\\solr', 'start'], shell=True)`
 
 * Replace `subprocess.Popen(['./solr-6.6.6/bin/solr', 'stop', '-all'])` with `subprocess.Popen(['.\\solr-6.6.6\\bin\\solr', 'stop', '-all'], shell=True)`
 
