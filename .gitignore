@@ -13,3 +13,4 @@ solr-*/docs/*
 solr-*/example/*
 solr-*/licenses/*
 solr-8983.pid
+solr-8983.port
