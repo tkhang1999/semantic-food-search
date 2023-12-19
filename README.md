@@ -59,7 +59,7 @@ $ python manage.py runserver
 
 **Note**: To run on Windows machine, the following steps may be required to run Solr server in background
 
-* Replace `subprocess.Popen(['./solr-6.6.6/bin/solr', 'start'])` with `subprocess.Popen(['.\\solr-6.6.6\\bin\\solr', 'start'], shell=True)`
+* Replace `subprocess.Popen(['./solr-6.6.6/bin/solr', 'start', '-force'])` with `subprocess.Popen(['.\\solr-6.6.6\\bin\\solr', 'start'], shell=True)`
 
 * Replace `subprocess.Popen(['./solr-6.6.6/bin/solr', 'stop', '-all'])` with `subprocess.Popen(['.\\solr-6.6.6\\bin\\solr', 'stop', '-all'], shell=True)`
 
