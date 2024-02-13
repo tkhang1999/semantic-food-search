@@ -2,7 +2,7 @@ asgiref==3.7.2
 certifi==2023.11.17
 charset-normalizer==2.1.1
 click==8.1.7
-Django==5.0.1
+Django==5.0.2
 filelock==3.9.0
 fsspec==2023.12.2
 gunicorn==21.2.0
