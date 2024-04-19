@@ -30,7 +30,7 @@ scipy==1.11.4
 sentence-transformers==2.2.2
 sentencepiece==0.1.99
 six==1.16.0
-sqlparse==0.4.4
+sqlparse==0.5.0
 sympy==1.12
 threadpoolctl==3.2.0
 tokenizers==0.15.0
