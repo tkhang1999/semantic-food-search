@@ -18,4 +18,4 @@ COPY . /app/
 
 ### Run application
 RUN python manage.py collectstatic --noinput
-CMD gunicorn SemanticSearch.wsgi:application --bind 0.0.0.0:$PORT
+CMD gunicorn SemanticSearch.wsgi:application --bind 0.0.0.0:$PORT -e RUN_MAIN=true
