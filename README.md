@@ -1,8 +1,8 @@
 # Solr-SBERT-semantic-search
 This is a simple web demo of semantic search (search by meaning) on food products using Solr and BERT embeddings.
 
-**Disclaimer:** The demo website is deployed on a free dyno from Heroku so it may take a while to load. 
-Additionally, the search result is limited to a small part of [Amazon Fine Food Reviews](https://www.kaggle.com/snap/amazon-fine-food-reviews) dataset
+**Disclaimer:** The demo website is deployed with minimal resources so it may take a while to load. 
+Additionally, the search result is limited to a small part of [Amazon Fine Food Reviews](https://www.kaggle.com/snap/amazon-fine-food-reviews) dataset.
 
 ## Introduction
 In information retrieval, retrieved documents are ranked by relevance to the query.
@@ -17,7 +17,7 @@ As a result, we are able to retrieve food products with reviews that have a simi
 For example, for the "*astonishing food*" query, the system will return products with similar reviews like "*amazing food*" and "*delicious food*," 
 which may not be retrieved if only textual similarity is used.
 
-**Web Demo: https://semantic-embeddings.herokuapp.com/**
+**Web Demo: https://semantic-search.fly.dev/**
 
 <p align="center">
   <img src="./demo.png" alt="Web Demo" />
@@ -30,7 +30,6 @@ Several technologies used in this project include:
 * [Solr 6.6](https://solr.apache.org/guide/6_6/) 
 * [SBERT](https://github.com/UKPLab/sentence-transformers)
 * [Docker](https://www.docker.com/)
-* [Heroku](https://www.heroku.com/)
 
 ## How to run?
 
@@ -74,12 +73,13 @@ $ python search/setup_solr/add_BERT_embedding_to_Solr.py
 
 ### 2. Pre-trained model used in SBERT
 * SBERT provides different models for our usage. More details can be found [here](https://www.sbert.net/docs/pretrained_models.html).
-* Because the application is deployed on a free dyno from Heroku, we choose and download a lightweight model locally to improve the web performance. 
+* Because the application is deployed on a low-resource machine to save cost, we choose and download a lightweight model locally to improve the web performance. 
 The [**paraphrase-MiniLM-L3-v2**](search/setup_solr/paraphrase-MiniLM-L3-v2/) model offers a great trade-off between performance and speed. 
 
 ### 3. Deployment
 * Containerize application with Docker
 * Deploy Docker-based app to Heroku: [https://devcenter.heroku.com/articles/container-registry-and-runtime](https://devcenter.heroku.com/articles/container-registry-and-runtime)
+* Deploy to Fly: [https://www.fly.io/docs/django/getting-started/existing/](https://www.fly.io/docs/django/getting-started/existing/)
 
 ### 4. Solr setup
 To setup `solr` from scratch, follow the below steps:
